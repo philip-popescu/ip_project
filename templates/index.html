@@ -5,13 +5,17 @@
     <!-- Link the .css file -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
+
 <body>
     <!-- Do some things -->
-    <d1 align="center">
+    <div class="horizontal-center">
         <h1>Hello World!</h1>
-        <button id="b1" name="id" onclick="hello();">PUSH ME!</button> <p id="button txt"></p>
-    </d1>
+        <button id="b1" onclick="hello();">PUSH ME!</button>
+        <p id="button txt"></p>
+    </div>
 </body>
-    <!-- Link the .js file -->
+
+<!-- Link the .js file -->
 <script src="{{ url_for('static', filename='functions.js') }}"></script>
+
 </html>

@@ -4,8 +4,21 @@ Oprea Radu 335CB
 
 Tene Teodora 335CB
 
-        -- PENTRU RULAREA LOCALA A API-ULUI -- 
+<h2>Comenzi rulare flask LOCAL</h2>
 
-https://flask.palletsprojects.com/en/2.1.x/quickstart/#static-files
+    export FLASK_APP=hello
+    flask run
 
-        
+<h2>Comenzi GIT</h2>
+
+Pentru a adauga un fisier:
+
+    git add <file_name>
+    git commit -m "message"
+    git push
+
+Pentru a updata:
+    
+    git pull
+
+

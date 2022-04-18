@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, make_response
 
 app = Flask(__name__)
 
@@ -8,6 +8,6 @@ def main():
     return render_template('index.html')
 
 
-@app.route("/login/")
-def login():
-    return render_template('login.html')
+@app.route("/login/<string:login_type>")
+def login(login_type):
+    return render_template('login.html', login_type=login_type)

@@ -26,6 +26,12 @@ Pentru a trimite modificarile:
 
 Pentru a updata:
     
+    git stash
     git pull
+    git stash pop
 
+
+<h1>WARNING!!!</h1>
+
+CAND TESTATI IN BROWSER MODIFICARI STERGETI CACHE-UL DEOARECE NU VA DA CERERE LA SERVER PENTRU NOILE DATE, CI LE VA RETURNA PE CELE CACHE-UITE!!!
 

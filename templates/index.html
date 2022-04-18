@@ -1,14 +1,17 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <!-- Link the .css file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Hello World!</h1>
-    <button id="b1" name="id">RANDOM</button>
+    <!-- Do some things -->
+    <d1 align="center">
+        <h1>Hello World!</h1>
+        <button id="b1" name="id" onclick="hello();">PUSH ME!</button> <p id="button txt"></p>
+    </d1>
 </body>
+    <!-- Link the .js file -->
+<script src="{{ url_for('static', filename='functions.js') }}"></script>
 </html>

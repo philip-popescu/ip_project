@@ -4,7 +4,7 @@ app = Flask(__name__)
 
 
 def check_login_type(login_type: str) -> bool:
-    return login_type in ['employee', '']
+    return login_type in ['employee', 'user']
 
 
 @app.route('/')

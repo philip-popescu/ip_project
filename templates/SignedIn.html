@@ -1,10 +1,25 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        {% if login_type == 'user' %}
+           <-- Cod de style pt pagina de 'user'-->
+        {% else %}
+           <-- Cod de style pt pagina de 'employee' -->
+        {% endif %}
+    </style>
 </head>
-<body>
 
+<body>
+    <p id="yes">{{ login_type }}</p>
 </body>
+
+<script>
+    var docType = {{ login_type }};
+</script>
 </html>

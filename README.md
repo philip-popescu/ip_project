@@ -33,5 +33,16 @@ Pentru a updata:
 
 <h1>WARNING!!!</h1>
 
-CAND TESTATI IN BROWSER MODIFICARI STERGETI CACHE-UL DEOARECE NU VA DA CERERE LA SERVER PENTRU NOILE DATE, CI LE VA RETURNA PE CELE CACHE-UITE!!!
+CAND TESTATI IN BROWSER MODIFICARI STERGETI CACHE-UL DEOARECE NU VA DA CERERE LA SERVER PENTRU NOILE DATE, 
+CI LE VA RETURNA PE CELE CACHE-UITE!!!
+
+
+<h1>Detalii utile sprint 1</h1>
+
+Pentru comunicarea paginii cu server se vor folosi metode POST (vezi: https://www.w3schools.com/tags/ref_httpmethods.asp)
+
+Pentru a usura creearea templeturilor puteti utiliza expresii jinja 
+(vezi: https://jinja.palletsprojects.com/en/3.1.x/templates/#builtin-tests). Aveti template pt index in care se poate 
+observa cum este utilizat acest standard.
+
 

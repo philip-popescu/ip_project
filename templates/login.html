@@ -17,9 +17,15 @@
 
 <body>
     <p id="yes">{{ login_type }}</p>
+    <button id="b" onclick="hello();">Push</button>
+    <p id="bp"></p>
 </body>
 
 <script>
-    var docType = {{ login_type }};
+    function hello() {
+        var docType = "{{ login_type }}";
+        console.log("PUSHED!");
+        document.getElementById('bp').innerHTML = docType;
+    }
 </script>
 </html>

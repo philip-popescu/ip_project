@@ -19,7 +19,7 @@ def login(login_type):
 
 
 @app.route("/mainPage/<string:login_type>")
-def user(login_type):
+def userPage(login_type):
     if check_login_type(login_type):
         return render_template("SignedIn.html", login_type=login_type)
 

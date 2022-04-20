@@ -45,6 +45,7 @@ Pentru a usura creearea templeturilor puteti utiliza expresii jinja
 (vezi: https://jinja.palletsprojects.com/en/3.1.x/templates/#builtin-tests). Aveti template pt index in care se poate 
 observa cum este utilizat acest standard.
 
-De asemenea va rog sa trimiteti pe branch-ul 'sprint_1' toate implementarile.
+De asemenea va rog sa trimiteti pe branch-ul 'sprint_1' toate implementarile. Daca trimiteti tot timpul pe main se va updata
+in continuu serverul de pe Azure.
 
 

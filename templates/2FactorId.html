@@ -8,9 +8,9 @@
     <title>Document</title>
     <style>
         {% if login_type == 'user' %}
-           <-- Cod de style pt pagina de 'user'-->
+           <!-- Cod de style pt pagina de 'user'-->
         {% else %}
-           <-- Cod de style pt pagina de 'employee' -->
+           <!-- Cod de style pt pagina de 'employee' -->
         {% endif %}
     </style>
 </head>
@@ -20,6 +20,6 @@
 </body>
 
 <script>
-    var docType = {{ login_type }};
+    var docType = '{{ login_type }}';
 </script>
 </html>

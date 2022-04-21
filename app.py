@@ -8,7 +8,7 @@ def check_login_type(login_type: str) -> bool:
 
 
 @app.route('/')
-def main():
+def main_page():
     return render_template('index.html')
 
 
@@ -27,3 +27,9 @@ def userPage(login_type):
 @app.route("/loginCheck", methods=['GET', 'POST'])
 def login_check():
     return NotImplementedError
+
+
+@app.route("/2FCheck", methods=['GET', 'POST'])
+def check_2f():
+    return NotImplementedError
+

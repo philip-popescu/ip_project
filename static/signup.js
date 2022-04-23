@@ -14,8 +14,7 @@ function displayErr(check) {
     let new_message = document.getElementById("message")
 
     if (check == 0) {
-        let n = sessionStorage.setItem(0, document.getElementById("nume").value)
-        location.href = "welcome.html";
+        location.href = "/home/"+document.getElementById("nume").value;
     }
     else if (check > 1) {
         err.style.opacity = 1;

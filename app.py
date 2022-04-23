@@ -21,8 +21,13 @@ def main_page():
     return render_template('index.html')
 
 
-@app.route("/login/<string:login_type>")
+@app.route('/signup')
+def signup():
+    return render_template("signup.html")
+
+
 @app.route("/login/<string:login_type>/FAILED")
+@app.route("/login/<string:login_type>")
 def login(login_type):
     aux = request.cookies.get('user_id')
     retry = 'FAILED' in request.base_url
@@ -71,3 +76,8 @@ def login_check():
 @app.route("/2FCheck", methods=['GET', 'POST'])
 def check_2f():
     return NotImplementedError
+
+
+@app.route("/home/<string:name>")
+def home(name):
+    return render_template("welcome.html", name=name)

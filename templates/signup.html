@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Signup</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signup.css') }}"/>
+</head>
+
+<body>
+
+    <h1 align="center">Signup Client:</h1>
+
+    <div align="center" class="alert" id="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Date Incorecte Introduse.
+    </div>
+
+    <p align="center">
+        <label for="nume">Nume:</label>
+        <input type="text" id="nume"> *
+    </p>
+    <p align="center">
+        <label for="telefon">Telefon:</label>
+        <input type="tel" id="telefon" name="phone"> *
+    </p>
+    <p align="center">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email"> *
+    </p>
+    <p align="center">
+        <label for="passw">Parola:</label>
+        <input type="password" id="passw"> * <br><br>
+        <label>
+            <input type="checkbox" onclick="showPass()">
+        </label>Show Password
+    </p>
+    <p align="center">
+        <label for="r_passw">Repeta parola:</label>
+        <input type="password" id="r_passw"> *
+    </p>
+
+    <p align="center">
+        <button onclick="checkCredentials()">SIGN UP!</button>
+    </p>
+
+    <p></p>
+    <h2 align="center" size="60px">*  -  camp obligatoriu</h2>
+
+    <script src="{{ url_for('static', filename='signup.js') }}"></script>
+</body>
+
+
+</html>

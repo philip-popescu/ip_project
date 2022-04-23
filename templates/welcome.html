@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Succes</title>
+    <h3 align="center">Signup Client:</h3>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signup.css') }}"/>
+</head>
+<script src="test.js"></script>
+<body>
+    <p align="center" id="message">CONT {{ name }}</p>
+    <p align="center">CREAT CU SUCCES</p>
+    <p align="center">
+        <button onclick="window.location.href='{{ url_for('login', login_type='user') }}'">LOG IN</button>
+    </p>
+</body>
+</html>

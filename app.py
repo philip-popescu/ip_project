@@ -81,3 +81,8 @@ def check_2f():
 @app.route("/home/<string:name>")
 def home(name):
     return render_template("welcome.html", name=name)
+
+
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('ErrorPage.html', page=request.base_url), 404

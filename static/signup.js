@@ -14,7 +14,8 @@ function displayErr(check) {
     let new_message = document.getElementById("message")
 
     if (check == 0) {
-        location.href = "/home/"+document.getElementById("nume").value;
+//        location.href = "/home/"+document.getElementById("nume").value;
+        document.getElementById("signupForm").submit();
     }
     else if (check > 1) {
         err.style.opacity = 1;

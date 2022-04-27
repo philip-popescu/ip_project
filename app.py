@@ -53,6 +53,14 @@ def userPage(login_type):
         return render_template('ErrorPage.html', page=request.base_url), 404
 
 
+@app.route("/check_signup", methods=['GET', 'POST'])
+def check_data():
+    for i in request.headers:
+        print(i)
+
+    return redirect(url_for('login', login_type='user'))
+
+
 @app.route("/loginCheck", methods=['GET', 'POST'])
 def login_check():
     login_type = request.headers.get('login_type')

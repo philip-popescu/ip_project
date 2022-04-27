@@ -5,59 +5,53 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="../static/login.css"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}"/>
     <title>Document</title>
     <style>
         {% if login_type == 'user' %}
-        /*<!-- Cod de style pt pagina de 'user'-->*/
+        h1 {background-color: red;
+            background-size: 3000px 3000px;
+            font-stretch: expanded}
         {% else %}
-        /*<!-- Cod de style pt pagina de 'employee' -->*/
+        h1 {background-color: purple;
+            background-size: 3000px 3000px;
+            font-stretch: expanded}
         {% endif %}
     </style>
 </head>
 <body>
 
-<h1 align="center">Login:</h1>
+    <h1 align="center">Login:</h1>
 
-<div align="center" class="alert" id="alert">
-    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-    Looks like you forgot something
-</div>
+    <div align="center" class="alert" id="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Looks like you forgot something
+    </div>
 
-<p align="center">
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="email"> *
-</p>
+    <p align="center">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email"> *
+    </p>
 
-<p align="center">
-    <label for="passw">Parola:</label>
-    <input type="password" id="passw"> * <br><br>
-    <label>
-        <input type="checkbox" onclick="showPass()">
-    </label>Show Password
-</p>
+    <p align="center">
+        <label for="passw">Parola:</label>
+        <input type="password" id="passw"> * <br><br>
+        <label>
+            <input type="checkbox" onclick="showPass()">
+        </label>Show Password
+    </p>
 
-<p align="center">
-    <input type="checkbox" id="keepLogIn">Keep me logged in.</input>
-</p>
+    {% if login_type == 'user' %}
+    <p align="center">
+        <input type="checkbox" id="keepLogIn">Keep me logged in.</input>
+    </p>
+    {% endif %}
 
-<p align="center">
-    <button align="left" onclick="displayErr()"> Login </button>
-    <button align="right"> Sign up </button>
-</p>
+    <p align="center">
+        <button align="left" onclick="displayErr()"> Login </button>
+        <button align="right"> Sign up </button>
+    </p>
 
-<script src="../static/login.js'"></script>
-
-<p id="yes">{{ login_type }}</p>
-<button id="b" onclick="hello();">Push</button>
-<p id="bp"></p>
+    <script src="{{ url_for('static', filename='login.js') }}"></script>
 </body>
-
-<script>
-    function hello() {
-        var docType = "{{ login_type }}";
-        console.log("PUSHED!");
-        document.getElementById('bp').innerHTML = docType;
-    }
-</script>
 </html>

@@ -15,10 +15,10 @@
         Date Incorecte Introduse.
     </div>
 
-    <form action="/check_signup" id="signupForm" method="post">
+    <form action="{{ url_for('check_signup_data') }}" id="signupForm" method="post">
         <p align="center">
             <label for="nume">Nume:</label>
-            <input type="text" id="nume", name="name"> *
+            <input type="text" id="nume" name="name"> *
         </p>
         <p align="center">
             <label for="telefon">Telefon:</label>
@@ -50,6 +50,4 @@
 
     <script src="{{ url_for('static', filename='signup.js') }}"></script>
 </body>
-
-
 </html>

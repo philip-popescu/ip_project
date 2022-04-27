@@ -3,8 +3,7 @@ button { margin-left: 20px;
     font-size: 15px }
 
 .alert { padding: 20px;
-    opacity: 0;
-    background-color: red;
-    color:white;
+    background-color: white;
+    color: red;
     margin-bottom: 30px;
     font-size: 20px }

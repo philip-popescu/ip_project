@@ -1,5 +1,5 @@
 from flask import Flask, render_template, redirect, request, url_for, make_response
-from datetime import time, datetime
+from datetime import datetime
 
 app = Flask(__name__)
 
@@ -68,7 +68,6 @@ def login_check():
     user_pass = request.form.get('user_password')
     save_cookie = request.form.get('keep_logged_in')
     user_id = credentials_check(login_type, user_email, user_pass)
-
 
     if user_id == -1:
         response = make_response(render_template("index.html"))

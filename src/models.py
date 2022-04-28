@@ -23,4 +23,6 @@ class MetodaPlata(db.Model):
     id = Column(Integer, primary_key=True)
     name = Column(String(50))
     expiration = Column(DateTime)
+    cod = Column(String(16))
+    cvv = Column(String(3))
 

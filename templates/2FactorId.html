@@ -6,20 +6,44 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}"/>
     <style>
         {% if login_type == 'user' %}
-           <!-- Cod de style pt pagina de 'user'-->
+        h1 {background-color: red;
+            background-size: 3000px 3000px;
+            font-stretch: expanded}
         {% else %}
-           <!-- Cod de style pt pagina de 'employee' -->
+        h1 {background-color: purple;
+            background-size: 3000px 3000px;
+            font-stretch: expanded}
         {% endif %}
     </style>
 </head>
 
 <body>
-    <p id="yes">{{ login_type }}</p>
+<!--    <p id="yes">{{ login_type }}</p>-->
+<form action="{{ url_for('2FCheck') }}" id="2FA_form" method="post">
+    <div align="center">
+        <h1>Two-Factor Authentication:</h1>
+        <label>Enter two-factor code:</label>
+        <br><br>
+        <input type="text" id="2fa" name="2FA_name">
+        <br><br>
+        <button onclick="verify_2fa()" id="verify">Verify</button>
+    </div>
+<!--</form>-->
+        <br><br>
+        <br><br>
+
+    <div align="center" class="alert" id="alert2FA">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        Cod introdus gresit.
+    </div>
+
+
 </body>
 
-<script>
-    var docType = '{{ login_type }}';
-</script>
+
+<!--<script src="{{ url_for('static', filename='signup.js') }}"></script>-->
+<script src = "{{ url_for('static', filename='login.js') }}"></script>
 </html>

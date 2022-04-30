@@ -22,11 +22,10 @@
 <body>
 
     <h1 align="center">Login:</h1>
-    {% if retry %}
-    <div align="center" class="alert" id="alert">
+
+    <div align="center" class="alert" id="alertLogin">
         <p>Email or password might be incorrect!</p>
     </div>
-    {% endif %}
 
 
     <form action="{{ url_for('login_check') }}" id="submitForm" method="post">
@@ -44,16 +43,17 @@
             </label>Show Password
         </p>
 
-        {% if login_type == 'user' %}
+
         <p align="center">
             <input type="checkbox" id="keepLogIn" name="keep_logged_in" value="True">
             <label>Keep me logged in.</label>
         </p>
-        {% endif %}
+
     </form>
 
     <p align="center">
         <button align="left" type="submit" form="submitForm"> Login </button>
+<!--        onclick="verify_Login()"-->
         <button align="right"> Sign up </button>
     </p>
 

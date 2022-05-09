@@ -45,11 +45,12 @@
             </label>Show Password
         </p>
 
-
+        {% if login_type == 'user'%}
         <p align="center">
             <input type="checkbox" id="keepLogIn" name="keep_logged_in" value="True">
             <label>Keep me logged in.</label>
         </p>
+        {% endif %}
 
     </form>
 

@@ -56,7 +56,7 @@
     <p align="center">
         <button align="left" type="submit" form="submitForm"> Login </button>
 <!--        onclick="verify_Login()"-->
-        <button align="right"> Sign up </button>
+        <button align="right" onclick="window.location.href='{{ url_for('signup') }}'"> Sign up </button>
     </p>
 
     {% if login_type == 'user'%}

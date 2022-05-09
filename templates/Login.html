@@ -57,6 +57,20 @@
         <button align="right"> Sign up </button>
     </p>
 
+    {% if login_type == 'user'%}
+    <form action="{{ url_for('login', login_type='employee') }}">
+        <p align="center">
+            <button type="submit">Change View</button>
+        </p>
+    </form>
+    {% else %}
+    <form action="{{ url_for('login', login_type='user') }}">
+        <p align="center">
+            <button type="submit">Change View</button>
+        </p>
+    </form>
+    {% endif %}
+
     <script src="{{ url_for('static', filename='login.js') }}"></script>
 </body>
 </html>

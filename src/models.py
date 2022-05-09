@@ -1,5 +1,5 @@
 from app import db
-from sqlalchemy import Column, Integer, String, ForeignKey, DateTime
+from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean
 from sqlalchemy.orm import declarative_base, validates
 
 # declarative base class
@@ -25,4 +25,15 @@ class MetodaPlata(db.Model):
     expiration = Column(DateTime)
     cod = Column(String(16))
     cvv = Column(String(3))
+
+
+class CP(db.Model):
+    __tablename__ = 'c_p'
+    id = Column(Integer, primary_key=True)
+    pid = Column(Integer, ForeignKey("metoda_plata.id", ondelete="CASCADE"))
+    cid = Column(Integer, ForeignKey("client.id", ondelete="CASCADE"))
+    saved = Column(Boolean)
+
+
+
 

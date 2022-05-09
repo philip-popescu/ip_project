@@ -10,7 +10,7 @@ app = Flask(__name__, static_folder='static')
 csrf = CSRFProtect(app)
 
 # WEBSITE_HOSTNAME exists only in production environment
-if not 'WEBSITE_HOSTNAME' in os.environ:
+if 'WEBSITE_HOSTNAME' not in os.environ:
    # local development, where we'll use environment variables
    print("Loading config.development and environment variables from .env file.")
    app.config.from_object('azureproject.development')
@@ -85,6 +85,11 @@ def login(login_type):
             return render_template('ErrorPage.html', page=request.base_url), 404
 
 
+@app.route("/logout")
+def logout():
+    return redirect("/login/user")
+
+
 @app.route("/mainPage/<string:login_type>")
 def userPage(login_type):
     aux = request.cookies.get('user_id')
@@ -95,6 +100,7 @@ def userPage(login_type):
 
 
 @app.route("/check_signup", methods=['POST'])
+@csrf.exempt
 def check_signup_data():
     for key, value in request.form.items():
         print(f"{key}: {value}")
@@ -103,6 +109,7 @@ def check_signup_data():
 
 
 @app.route("/loginCheck", methods=['POST'])
+@csrf.exempt
 def login_check():
     login_type = request.form.get('login_type')
     user_email = request.form.get('user_email')

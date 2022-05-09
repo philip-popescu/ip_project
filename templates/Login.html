@@ -23,9 +23,11 @@
 
     <h1 align="center">Login:</h1>
 
+    {% if retry %}
     <div align="center" class="alert" id="alertLogin">
         <p>Email or password might be incorrect!</p>
     </div>
+    {% endif %}
 
 
     <form action="{{ url_for('login_check') }}" id="submitForm" method="post">

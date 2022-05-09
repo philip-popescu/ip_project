@@ -22,7 +22,7 @@
 
 <body>
 <!--    <p id="yes">{{ login_type }}</p>-->
-<form action="{{ url_for('2FCheck') }}" id="2FA_form" method="post">
+<form action="{{ url_for('check_2f') }}" id="2FA_form" method="post">
     <div align="center">
         <h1>Two-Factor Authentication:</h1>
         <label>Enter two-factor code:</label>
@@ -31,7 +31,7 @@
         <br><br>
         <button onclick="verify_2fa()" id="verify">Verify</button>
     </div>
-<!--</form>-->
+</form>
         <br><br>
         <br><br>
 

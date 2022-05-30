@@ -37,16 +37,15 @@ def credentials_check(login_type, user_email, user_pass):
 
     if login_type == "user":
         users = get_data("users")
-        print(users)
         for x in users:
             if x["email"] == user_email and x["password"] == user_pass:
                 uid = x["id"]
-        print(uid)
     else:
         users = get_data("employee")
         for x in users:
             if x["email"] == user_email and x["password"] == user_pass:
                 uid = x["id"]
+    print(uid)
     return uid
 
 
@@ -56,7 +55,11 @@ def check_login_type(login_type: str) -> bool:
 
 @app.route('/')
 def main_page():
-    return render_template('image.html')
+    cookie = request.cookies.get("user_id")
+    if cookie is None:
+        return redirect(url_for("login", login_type='user'))
+    cookie_comp = cookie.split('_')
+    return redirect(url_for("user_page", login_type=cookie_comp[0]))
 
 
 @app.route('/signup')
@@ -72,7 +75,7 @@ def login(login_type):
     if aux:
         aux = aux.split('_')
         account = (aux[0], int(aux[1]))
-        return redirect(url_for('main_page', login_type=account[0]))
+        return redirect(url_for('userPage', login_type=account[0]))
     else:
         if check_login_type(login_type):
             return render_template("Login.html", login_type=login_type,
@@ -93,9 +96,7 @@ def logout():
 def userPage(login_type):
     aux = request.cookies.get('user_id')
     if aux and check_login_type(login_type):
-        return render_template("SignedIn.html", login_type=login_type)
-    else:
-        return render_template('ErrorPage.html', page=request.base_url), 404
+        return render_template(f"{login_type}_main.html")
 
 
 @app.route("/check_signup", methods=['POST'])
@@ -132,6 +133,46 @@ def login_check():
 @app.route("/home/<string:name>")
 def home(name):
     return render_template("welcome.html", name=name)
+
+
+@app.route("/acknowledge")
+def ack_page():
+    cookie = request.cookies.get("user_id")
+    if cookie is None:
+        return redirect(url_for("login", login_type='user'))
+    cookie_fields = cookie.split("_")
+    if cookie_fields[0] == 'user':
+        return redirect(url_for("login", login_type='user'))
+    else:
+        employees = get_data("employee")
+        x = None
+        for e in employees:
+            if e.get('id') == int(cookie_fields[1]):
+                x = e
+        hotel = x.get('hotel')
+        reservations = [r for r in get_data('reservation') if r['hotel'] == hotel and r['status'] == 0]
+        hx = None
+        for h in get_data('location'):
+            if h['id'] == hotel:
+                hx = h
+        return render_template("acknowledge.html", rezervations=reservations, hotel=hx)
+
+
+@app.route("/recvReservationStatus")
+def manage_rez():
+    for key, value in request.form.items():
+        print(f'{key}: {value}')
+        rez_id = int(key.split('_')[1])
+        rez = None
+        for r in get_data("reservation"):
+            if r['id'] == rez_id:
+                rez = r
+        if value == 'True':
+            rez['status'] = 1
+        else:
+            rez['status'] = 2
+    update()
+    return redirect("/mainPage/employee")
 
 
 @app.errorhandler(404)

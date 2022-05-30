@@ -1,0 +1,21 @@
+h1 {background-color: red;
+    background-size: 3000px 3000px;
+    font-stretch: expanded;
+    font-size: 50px}
+
+button {
+    font-size: 20px;
+    width: 50%;
+    height: 100px;
+}
+select {
+    font-size: 30px;
+    width:20%;
+    height: 30px;
+}
+
+input {
+    font-size: 30px;
+    width:20%;
+    height: 30px;
+}

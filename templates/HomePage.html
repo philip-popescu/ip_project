@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='HomePage.css') }}"/>
+<!--    <link rel="stylesheet" type="text/css" href="../static/HomePage.css"/>-->
+    <title>Home</title>
+        <style>
+        h1 {background-color: purple;
+            background-size: 3000px 3000px;
+            font-stretch: expanded;
+            font-size: 50px}
+        </style>
+</head>
+<body>
+    <h1>EMP Interface</h1>
+    <p align="center">
+        <button>Create Reservation</button> <br><br>
+        <button>Acknowledge</button> <br><br>
+        <button onclick="window.location.href='{{ url_for('logout') }}'">SIGN OUT</button>
+    </p>
+</body>
+</html>

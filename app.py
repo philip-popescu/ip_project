@@ -56,7 +56,8 @@ def check_login_type(login_type: str) -> bool:
 @app.route('/')
 def main_page():
     cookie = request.cookies.get("user_id")
-    if cookie is None:return render_template('mainPage.html', hotels=get_data('location'))
+    if cookie is None:
+        return render_template('mainPage.html', hotels=get_data('location'))
     cookie_comp = cookie.split('_')
     if cookie_comp[0] == 'employee':
         return redirect('/mainPage/employee')
@@ -219,6 +220,7 @@ def register_res():
     for x, _ in request.form.items():
         if 'room_' in x:
             new_rez['room_id'].append(int(x.split('_')[1]))
+    new_rez['id'] = len(get_data('reservation'))
     add_data('reservation', new_rez)
     return redirect('/')
 

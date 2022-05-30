@@ -1,15 +1,56 @@
-from flask import Flask, render_template, redirect, request, url_for, make_response
+from flask import make_response
+from flask import Flask, render_template, request, redirect, url_for
+from flask_sqlalchemy import SQLAlchemy
+from flask_migrate import Migrate
+from flask_wtf.csrf import CSRFProtect
 from datetime import datetime
+import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
+csrf = CSRFProtect(app)
+
+# WEBSITE_HOSTNAME exists only in production environment
+if 'WEBSITE_HOSTNAME' not in os.environ:
+   # local development, where we'll use environment variables
+   print("Loading config.development and environment variables from .env file.")
+   app.config.from_object('azureproject.development')
+else:
+   # production
+   print("Loading config.production.")
+   app.config.from_object('azureproject.production')
+
+app.config.update(
+    SQLALCHEMY_DATABASE_URI=app.config.get('DATABASE_URI'),
+    SQLALCHEMY_TRACK_MODIFICATIONS=False,
+)
+
+# Initialize the database connection
+db = SQLAlchemy(app)
+
+# Enable Flask-Migrate commands "flask db init/migrate/upgrade" to work
+migrate = Migrate(app, db)
+
+# Create databases, if databases exists doesn't issue create
+# For schema changes, run "flask db migrate"
+db.create_all()
+db.session.commit()
 
 
 def credentials_check(login_type, user_email, user_pass):
     """
     Returns the user id if credentials are correct, None otherwise
     """
-    ret = 1782
-    return ret
+    print(f"Checking credentials: {login_type}:'{user_email}'-'{user_pass}'")
+    uid = None
+    if login_type == "user":
+        from models import Client
+        cli = Client.query.filter(Client.email == user_email, Client.password == user_pass).one_or_none()
+    else:
+        from models import Angajat
+        cli = Angajat.query.filter(Angajat.email == user_email, Angajat.password == user_pass).one_or_none()
+    if cli:
+        uid = cli.id
+    return uid
 
 
 def check_login_type(login_type: str) -> bool:
@@ -59,6 +100,7 @@ def userPage(login_type):
 
 
 @app.route("/check_signup", methods=['POST'])
+@csrf.exempt
 def check_signup_data():
     for key, value in request.form.items():
         print(f"{key}: {value}")
@@ -67,6 +109,7 @@ def check_signup_data():
 
 
 @app.route("/loginCheck", methods=['POST'])
+@csrf.exempt
 def login_check():
     login_type = request.form.get('login_type')
     user_email = request.form.get('user_email')
@@ -74,8 +117,8 @@ def login_check():
     save_cookie = request.form.get('keep_logged_in')
     user_id = credentials_check(login_type, user_email, user_pass)
 
-    if user_id == -1:
-        response = make_response(render_template("index.html"))
+    if user_id:
+        response = make_response(render_template("2FactorId.html"))
         if save_cookie:
             response.set_cookie(key="user", value=f"{login_type}_{user_id}", expires=datetime(2034, 12, 30))
         else:

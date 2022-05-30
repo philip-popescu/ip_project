@@ -18,11 +18,11 @@
     <form action="{{ url_for('check_signup_data') }}" id="signupForm" method="post">
         <p align="center">
             <label for="nume">Nume:</label>
-            <input type="text" id="nume" name="name"> *
+            <input type="text" id="nume" name="nume"> *
         </p>
         <p align="center">
             <label for="telefon">Telefon:</label>
-            <input type="tel" id="telefon" name="phone"> *
+            <input type="tel" id="telefon" name="telefon"> *
         </p>
         <p align="center">
             <label for="email">E-mail:</label>
@@ -35,11 +35,11 @@
                 <input type="checkbox" onclick="showPass()">
             </label>Show Password
         </p>
+    </form>
         <p align="center">
             <label for="r_passw">Repeta parola:</label>
             <input type="password" id="r_passw" name="re_password"> *
         </p>
-    </form>
 
         <p align="center">
             <button onclick="checkCredentials()">SIGN UP!</button>

@@ -1,4 +1,4 @@
-from tmp.app import db
+from app import db
 from sqlalchemy import Column, Integer, String, ForeignKey, DateTime, Boolean, Float
 from sqlalchemy.orm import declarative_base
 

@@ -1,0 +1,49 @@
+{
+    "users": [
+        {
+            "id": 0,
+            "nume": "Ion Ionescu",
+            "telefon": "074983361",
+            "email": "ion_ionescu@yahoo.com",
+            "password": "ion12345"
+        },
+        {
+            "name": "Popescu Philip",
+            "phone": "0744421715",
+            "email": "popescu_philip@yahoo.ro",
+            "password": "qwer1234",
+            "re_password": "qwer1234",
+            "id": 1
+        }
+    ],
+    "employee": [
+        {
+            "id": 0,
+            "nume": "Anca",
+            "telefon": "0799977734",
+            "email": "anca@yahoo.com",
+            "password": "zoefibarbata",
+            "hotel": 0
+        }
+    ],
+    "reservation": [
+        {
+            "id": 0,
+            "from": "azi",
+            "to": "maine",
+            "hotel": 0,
+            "nr_persoane": 3,
+            "user": 0,
+            "status": 0
+        }
+    ],
+    "location": [
+        {
+            "id": 0,
+            "locatie": "Bucuresti, sector 2, Stefan cel Mare nr.87",
+            "tip": "Hotel 5 stele",
+            "pret": 120,
+            "nr_camere": 100
+        }
+    ]
+}

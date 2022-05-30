@@ -8,3 +8,14 @@ button {
     width: 50%;
     height: 100px;
 }
+select {
+    font-size: 30px;
+    width:20%;
+    height: 30px;
+}
+
+input {
+    font-size: 30px;
+    width:20%;
+    height: 30px;
+}

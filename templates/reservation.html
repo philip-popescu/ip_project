@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='EmployeeMain.css') }}"/>-->
+    <link rel="stylesheet" type="text/css" href="../static/EmployeeMain.css"/>
+    <title>Title</title>
+</head>
+<body>
+    <h1>Create reservation</h1>
+
+    <hidden value = '{{hotel_id}}'></hidden>
+
+    <p >
+        <select name="Nr Pers" id="noPers">
+            <option value=1>1</option>
+            <option value=2>2</option>
+            <option value=3>3</option>
+            <option value=4>4</option>
+        </select> Numar Persoane
+    </p>
+
+    <p >
+        <input type="date" id="dateFrom"
+        placeholder="dd-mm-yyyy" value=""
+        min="2022-01-01" max="2030-12-31"> From
+    </p>
+
+    <p >
+        <input type="date" id="dateTo"
+         placeholder="dd-mm-yyyy" value=""
+         min="2022-01-01" max="2030-12-31"> To
+    </p>
+
+</body>
+</html>

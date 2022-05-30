@@ -121,7 +121,7 @@ def login_check():
     user_id = credentials_check(login_type, user_email, user_pass)
 
     if user_id is not None:
-        response = make_response(render_template("image.html"))
+        response = make_response(render_template(f"{login_type}_main.html"))
         if save_cookie:
             response.set_cookie(key="user_id", value=f"{login_type}_{user_id}", expires=datetime(2034, 12, 30))
         else:

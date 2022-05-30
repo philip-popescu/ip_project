@@ -1,0 +1,10 @@
+h1 {background-color: purple;
+    background-size: 3000px 3000px;
+    font-stretch: expanded;
+    font-size: 50px}
+
+button {
+    font-size: 20px;
+    width: 50%;
+    height: 100px;
+}

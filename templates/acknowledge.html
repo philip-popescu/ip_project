@@ -9,37 +9,21 @@
 <body>
     <h1>Acknowledge reservations</h1>
 
-    <form action="{{ url_for('manage_rez') }}" id="ackForm" methon="post">
+    <form action="{{ url_for('manage_rez') }}" id="ackForm" method="post">
 
         {% for r in reservations %}
 
-        <b id="fromText"></b>
-        <script>
-            var from = "from_{{r['id']}}";
-            document.getElementById("fromText").innerHTML = 'from: ' + from;
-        </script>
+        <b id="fromText">from: {{r['from']}}</b>
 
 
-        <b id="toText"></b>
-        <script>
-            var to = "to_{{r['id']}}";
-            document.getElementById("toText").innerHTML ='to: ' + to;
-        </script>
+        <b id="toText">to: {{r['to']}}</b>
 
         <p>
-            <b id="roomText"></b>
-            <script>
-                var room = "room_id_{{r['id']}}";
-                document.getElementById("roomText").innerHTML = 'room id: ' + room;
-            </script>
+            <b id="roomText">room id's: {{r['room_id']}}</b>
         </p>
 
         <p>
-            <b id="pretText"></b>
-            <script>
-                var price = "price_{{r['id']}}";
-                document.getElementById("pretText").innerHTML = 'pret: ' + price;
-            </script>
+            <b id="pretText">pret: {{r['price']}}</b>
         </p>
 
         <p align="center">

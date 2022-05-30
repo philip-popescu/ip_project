@@ -33,7 +33,10 @@
             "to": "14-06-2022",
             "hotel": 0,
             "nr_persoane": 3,
-            "room_id": [0, 1],
+            "room_id": [
+                0,
+                1
+            ],
             "user": 0,
             "status": 0,
             "price": 480

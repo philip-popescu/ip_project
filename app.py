@@ -151,13 +151,15 @@ def ack_page():
         for e in employees:
             if e.get('id') == int(cookie_fields[1]):
                 x = e
+        print(x)
+
         hotel = x.get('hotel')
         reservations = [r for r in get_data('reservation') if r['hotel'] == hotel and r['status'] == 0]
         hx = None
         for h in get_data('location'):
             if h['id'] == hotel:
                 hx = h
-        return render_template("acknowledge.html", rezervations=reservations, hotel=hx)
+        return render_template("acknowledge.html", reservations=reservations, hotel=hx)
 
 
 @app.route("/recvReservationStatus", methods=['POST'])

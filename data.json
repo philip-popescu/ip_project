@@ -35,7 +35,8 @@
             "nr_persoane": 3,
             "room_id": [0, 1],
             "user": 0,
-            "status": 0
+            "status": 0,
+            "price": 480
         }
     ],
     "location": [

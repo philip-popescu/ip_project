@@ -49,19 +49,19 @@
             "rooms": [
                 {
                     "id": 0,
-                    "nr_beads": 2
+                    "nr_beds": 2
                 },
                 {
                     "id": 1,
-                    "nr_beads": 2
+                    "nr_beds": 2
                 },
                 {
                     "id": 2,
-                    "nr_beads": 3
+                    "nr_beds": 3
                 },
                 {
                     "id": 3,
-                    "nr_beads": 1
+                    "nr_beds": 1
                 }
             ]
         }

@@ -59,7 +59,14 @@ def main_page():
     if cookie is None:
         return redirect(url_for("login", login_type='user'))
     cookie_comp = cookie.split('_')
-    return redirect(url_for("user_page", login_type=cookie_comp[0]))
+    if cookie_comp[0] == 'employee':
+        return redirect('/mainPage/employee')
+    return render_template('mainPage.html', hotels=get_data('location'), id=cookie_comp[1])
+
+
+@app.route('/home')
+def home():
+    return render_template('image.html')
 
 
 @app.route('/signup')
@@ -130,11 +137,6 @@ def login_check():
     return redirect(f'/login/{login_type}/FAILED')
 
 
-@app.route("/home/<string:name>")
-def home(name):
-    return render_template("welcome.html", name=name)
-
-
 @app.route("/acknowledge")
 def ack_page():
     cookie = request.cookies.get("user_id")
@@ -158,7 +160,7 @@ def ack_page():
         return render_template("acknowledge.html", rezervations=reservations, hotel=hx)
 
 
-@app.route("/recvReservationStatus")
+@app.route("/recvReservationStatus", methods=['POST'])
 def manage_rez():
     for key, value in request.form.items():
         print(f'{key}: {value}')
@@ -173,6 +175,29 @@ def manage_rez():
             rez['status'] = 2
     update()
     return redirect("/mainPage/employee")
+
+
+@app.route('/registerReservation', methods=['POST'])
+def register_res():
+    cookie_f = request.cookies.get('user_id').split('_')
+    new_rez = {}
+    if cookie_f[0] == 'employee':
+        new_rez['user'] = -1
+        new_rez['status'] = 1
+    else:
+        new_rez['user'] = int(cookie_f[1])
+        new_rez['status'] = 0
+    new_rez['from'] = request.form.get('from')
+    new_rez['to'] = request.form.get('to')
+    new_rez['nr_persoane'] = int(request.form.get('nr_persoane'))
+    new_rez['hotel'] = request.form.get('hotel')
+    new_rez['room_id'] = []
+    for x, _ in request.form.items():
+        if 'room_' in x:
+            new_rez['room_id'].append(int(x.split('_')[1]))
+
+
+    return redirect('/home')
 
 
 @app.errorhandler(404)

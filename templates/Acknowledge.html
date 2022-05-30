@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='EmployeeMain.css') }}"/>
+<!--    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='EmployeeMain.css') }}"/>-->
+        <link rel="stylesheet" type="text/css" href="../static/EmployeeMain.css"/>
     <title>Acknowledge</title>
 </head>
 <body>
@@ -12,6 +13,35 @@
 
         {% for r in reservations %}
 
+        <b id="fromText"></b>
+        <script>
+            var from = "from_{{r['id']}}";
+            document.getElementById("fromText").innerHTML = 'from: ' + from;
+        </script>
+
+
+        <b id="toText"></b>
+        <script>
+            var to = "to_{{r['id']}}";
+            document.getElementById("toText").innerHTML ='to: ' + to;
+        </script>
+
+        <p>
+            <b id="roomText"></b>
+            <script>
+                var room = "room_id_{{r['id']}}";
+                document.getElementById("roomText").innerHTML = 'room id: ' + room;
+            </script>
+        </p>
+
+        <p>
+            <b id="pretText"></b>
+            <script>
+                var price = "price_{{r['id']}}";
+                document.getElementById("pretText").innerHTML = 'pret: ' + price;
+            </script>
+        </p>
+
         <p align="center">
             <input type="radio" id="accept" name="status_{{r['id']}}" value="True">
             <label for="accept">Accept</label><br><br>
@@ -19,9 +49,9 @@
             <label for="decline">Decline</label><br><br>
         </p>
 
-        {% end-for %}
+        {% endfor %}
 
-        <p>
+        <p align="center">
             <button type="submit">Submit</button>
         </p>
 

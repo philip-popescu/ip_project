@@ -56,17 +56,11 @@ def check_login_type(login_type: str) -> bool:
 @app.route('/')
 def main_page():
     cookie = request.cookies.get("user_id")
-    if cookie is None:
-        return redirect(url_for("login", login_type='user'))
+    if cookie is None:return render_template('mainPage.html', hotels=get_data('location'))
     cookie_comp = cookie.split('_')
     if cookie_comp[0] == 'employee':
         return redirect('/mainPage/employee')
     return render_template('mainPage.html', hotels=get_data('location'), id=cookie_comp[1])
-
-
-@app.route('/home')
-def home():
-    return render_template('image.html')
 
 
 @app.route('/signup')
@@ -179,6 +173,34 @@ def manage_rez():
     return redirect("/mainPage/employee")
 
 
+@app.route('/createReservation')
+def res_page():
+    cookie = request.cookies.get('user_id')
+    if cookie is None:
+        return redirect(url_for("login", logi_type='user'))
+    cookie_f = cookie.split('_')
+    hotel_id = -1
+    hotel_data = None
+    rezervari = None
+
+    if cookie_f[0] == 'user':
+        hotel_id = request.args.get('hotel')
+    else:
+        emp_id = int(cookie_f[1])
+        for e in get_data('employee'):
+            if e['id'] == emp_id:
+                hotel_id = e['hotel']
+
+    for h in get_data('location'):
+        if h['id'] == hotel_id:
+            hotel_data = h
+    for r in get_data('reservation'):
+        if r['hotel'] == hotel_id:
+            rezervari = r
+    return render_template("reservation.html", rezervari=rezervari,
+                           hotel_data=hotel_data, user_type=cookie_f[0])
+
+
 @app.route('/registerReservation', methods=['POST'])
 def register_res():
     cookie_f = request.cookies.get('user_id').split('_')
@@ -197,9 +219,8 @@ def register_res():
     for x, _ in request.form.items():
         if 'room_' in x:
             new_rez['room_id'].append(int(x.split('_')[1]))
-
-
-    return redirect('/home')
+    add_data('reservation', new_rez)
+    return redirect('/')
 
 
 @app.errorhandler(404)

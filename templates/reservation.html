@@ -32,5 +32,37 @@
          min="2022-01-01" max="2030-12-31"> To
     </p>
 
+    <p>
+<!--        <ul id="listOfRooms"></ul>-->
+<!--        <input type="checkbox" name="RoomsAvailable" id="roomAva" value="True" >-->
+        <script>
+            let ids = roomsAvailable();
+
+            // var container = document.createElement('div');
+            // var checkboxContainer = document.createElement('div');
+            // checkboxContainer.setAttribute('class', 'checkbox');
+            var label; var check;
+
+            for(item in ids) {
+
+                label = document.createElement('label');
+                check = document.createElement('input');
+                check.type = "checkbox";
+                check.name="RoomsAvailable";
+                check.value="True";
+                label.innerHTML = "room: " + item.id + " rooms: " + item.nr_beds;
+
+                label.appendChild(check);
+
+                // checkboxContainer.appendChild(label);
+                // container.appendChild(checkboxContainer);
+            }
+
+        </script>
+
+    </p>
+
+
+    <script src="{{ url_for('static', filename='EmployeeMain.js') }}"></script>
 </body>
 </html>

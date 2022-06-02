@@ -82,6 +82,36 @@
                 1
             ],
             "id": 3
+        },
+        {
+            "price": 960,
+            "user": 0,
+            "status": 2,
+            "from": "2022-07-29",
+            "to": "2022-08-13",
+            "nr_persoane": 3,
+            "hotel": 0,
+            "room_id": [
+                0,
+                1,
+                2,
+                3
+            ],
+            "id": 4
+        },
+        {
+            "price": 120,
+            "user": 0,
+            "status": 0,
+            "from": "2022-06-02",
+            "to": "2022-06-10",
+            "nr_persoane": 4,
+            "hotel": 1,
+            "room_id": [
+                0,
+                1
+            ],
+            "id": 5
         }
     ],
     "location": [
@@ -107,6 +137,31 @@
                 {
                     "id": 3,
                     "nr_beds": 1
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "locatie": "Brasov, Strada Mare nr.47",
+            "tip": "Pensiune",
+            "descriere": "Un pat bun si doua mese calde",
+            "pret": 30,
+            "rooms": [
+                {
+                    "id": 0,
+                    "nr_beds": 1
+                },
+                {
+                    "id": 1,
+                    "nr_beds": 3
+                },
+                {
+                    "id": 2,
+                    "nr_beds": 4
+                },
+                {
+                    "id": 3,
+                    "nr_beds": 2
                 }
             ]
         }

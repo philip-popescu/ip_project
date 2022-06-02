@@ -2,11 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Pagina Principala</title>
 </head>
 
 
 <body>
-Hello world.
+{% if id %}
+<button onclick="window.location.href='{{ url_for('userPage', login_type='user') }}'">User Profile</button>
+{% else %}
+<button onclick="window.location.href='{{ url_for('login', login_type='user') }}'">LogIn</button>
+{% endif %}
+
+{% for h in hotels %}
+<div>Location: {{h['locatie']}}</div>
+<div>{{h['descriere']}}</div>
+<div>Type hotel: {{h['tip']}}</div>
+<form action="{{ url_for('res_page') }}" method="get">
+    <input type="hidden" name="hotel" id="hotel" value={{h['id']}}>
+    <button onclick="submit">Make Reservation</button>
+</form>
+{% endfor %}
 </body>
 </html>

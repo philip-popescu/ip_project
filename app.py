@@ -185,7 +185,7 @@ def res_page():
     rezervari = []
 
     if cookie_f[0] == 'user':
-        hotel_id = request.args.get('hotel')
+        hotel_id = int(request.values.get('hotel'))
     else:
         emp_id = int(cookie_f[1])
         for e in get_data('employee'):

@@ -54,6 +54,34 @@
                 3
             ],
             "id": 1
+        },
+        {
+            "price": 480,
+            "user": -1,
+            "status": 1,
+            "from": "2022-10-01",
+            "to": "2022-11-04",
+            "nr_persoane": 6,
+            "hotel": 0,
+            "room_id": [
+                0,
+                1
+            ],
+            "id": 2
+        },
+        {
+            "price": 480,
+            "user": 0,
+            "status": 2,
+            "from": "2022-06-18",
+            "to": "2022-06-26",
+            "nr_persoane": 6,
+            "hotel": 0,
+            "room_id": [
+                0,
+                1
+            ],
+            "id": 3
         }
     ],
     "location": [
@@ -61,7 +89,7 @@
             "id": 0,
             "locatie": "Bucuresti, sector 2, Stefan cel Mare nr.87",
             "tip": "Hotel 5 stele",
-            "descriere": "Un hotel de lux",
+            "descriere": "Un hotel de lux.",
             "pret": 120,
             "rooms": [
                 {

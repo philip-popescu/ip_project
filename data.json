@@ -38,21 +38,22 @@
                 1
             ],
             "user": 0,
-            "status": 0,
+            "status": 2,
             "price": 480
         },
         {
+            "price": 480,
             "user": -1,
             "status": 1,
-            "from": "2022-07-10",
-            "to": "2022-07-17",
+            "from": "2022-06-15",
+            "to": "2022-06-25",
             "nr_persoane": 4,
             "hotel": 0,
             "room_id": [
-                0,
-                1
+                2,
+                3
             ],
-            "id": 2
+            "id": 1
         }
     ],
     "location": [

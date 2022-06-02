@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='UserMain.css') }}"/>
+    <title>User Reservations</title>
+</head>
+<body>
+
+    {% for r in reservations %}
+    <div>From: {{r['from']}}  To: {{r['to']}}</div>
+        {% for h in hotele %}
+            {% if h['id'] == r['hotel'] %}
+            <div>At: {{h['locatie']}}</div>
+            {% endif %}
+        {% endfor %}
+    <div>People Count: {{r['nr_persoane']}}</div>
+    <div>Rooms selected: {{r['room_id']}}</div>
+    <div>Status: {%if r['status'] == 0%}PENDING{%elif r['status'] == 1%}ACCEPTED{%else%}REJECTED{%endif%}</div>
+    <br>
+    {% endfor %}
+
+    <button onclick="window.location.href='{{ url_for('userPage', login_type='user') }}'">Return Home</button>
+
+</body>
+</html>

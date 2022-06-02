@@ -205,7 +205,7 @@ def res_page():
 @app.route('/registerReservation', methods=['POST'])
 def register_res():
     cookie_f = request.cookies.get('user_id').split('_')
-    new_rez = {}
+    new_rez = {'price': 0}
     if cookie_f[0] == 'employee':
         new_rez['user'] = -1
         new_rez['status'] = 1
@@ -216,13 +216,37 @@ def register_res():
     new_rez['to'] = request.form.get('to')
     new_rez['nr_persoane'] = int(request.form.get('nr_persoane'))
     new_rez['hotel'] = int(request.form.get('hotel'))
+    hotel_rooms = None
+    hotel_price = None
+    for h in get_data('location'):
+        if h['id'] == new_rez['hotel']:
+            hotel_rooms = h['rooms']
+            hotel_price = h['pret']
     new_rez['room_id'] = []
     for x, _ in request.form.items():
         if 'room_' in x:
             new_rez['room_id'].append(int(x.split('_')[1]))
     new_rez['id'] = len(get_data('reservation'))
+    for r in hotel_rooms:
+        if r['id'] in new_rez['room_id']:
+            new_rez['price'] += r['nr_beds'] * hotel_price
     add_data('reservation', new_rez)
     return redirect('/')
+
+
+@app.route("/userReservations")
+def user_reservations():
+    cookie = request.cookies.get("user_id")
+    if cookie is None or "user" not in cookie:
+        return redirect("/")
+    reservations = []
+
+    for r in get_data('reservation'):
+        if r['user'] == int(cookie.split('_')[1]):
+            reservations.append(r)
+
+    return render_template("userReservations.html", reservations=reservations,
+                           hotele=get_data('location'))
 
 
 @app.errorhandler(404)

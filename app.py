@@ -72,10 +72,10 @@ def signup():
 @app.route("/login/<string:login_type>/FAILED")
 @app.route("/login/<string:login_type>")
 def login(login_type):
-    aux = request.cookies.get('user_id')
+    cookie = request.cookies.get('user_id')
     retry = 'FAILED' in request.base_url
-    if aux:
-        aux = aux.split('_')
+    if cookie:
+        aux = cookie.split('_')
         account = (aux[0], int(aux[1]))
         return redirect(url_for('userPage', login_type=account[0]))
     else:
@@ -182,7 +182,7 @@ def res_page():
     cookie_f = cookie.split('_')
     hotel_id = -1
     hotel_data = None
-    rezervari = None
+    rezervari = []
 
     if cookie_f[0] == 'user':
         hotel_id = request.args.get('hotel')
@@ -197,7 +197,7 @@ def res_page():
             hotel_data = h
     for r in get_data('reservation'):
         if r['hotel'] == hotel_id:
-            rezervari = r
+            rezervari.append(r)
     return render_template("reservation.html", rezervari=rezervari,
                            hotel_data=hotel_data, user_type=cookie_f[0])
 
@@ -215,7 +215,7 @@ def register_res():
     new_rez['from'] = request.form.get('from')
     new_rez['to'] = request.form.get('to')
     new_rez['nr_persoane'] = int(request.form.get('nr_persoane'))
-    new_rez['hotel'] = request.form.get('hotel')
+    new_rez['hotel'] = int(request.form.get('hotel'))
     new_rez['room_id'] = []
     for x, _ in request.form.items():
         if 'room_' in x:

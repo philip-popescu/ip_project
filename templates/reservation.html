@@ -3,66 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='EmployeeMain.css') }}"/>
-<!--    <link rel="stylesheet" type="text/css" href="../static/EmployeeMain.css"/>-->
-    <title>Title</title>
+    <title>Pagina Rezervari</title>
 </head>
 <body>
     <h1>Create reservation</h1>
+    <form action="{{ url_for('register_res')}}" method="post">
+    <input type="hidden" value="{{hotel_data['id']}}" name="hotel" id="hotel">
 
-    <hidden value = '{{hotel_data[id]}}'></hidden>
-
-    <p >
-        <select name="Nr Pers" id="noPers">
-            <option value=1>1</option>
-            <option value=2>2</option>
-            <option value=3>3</option>
-            <option value=4>4</option>
+    <p>
+        <select name="nr_persoane" id="nr_persoane">
+        {% for i in range(50) %}
+            <option value={{i}}>{{i}}</option>
+        {%endfor%}
         </select> Numar Persoane
     </p>
 
     <p >
-        <input type="date" id="dateFrom"
+        <input type="date" id="from" name="from"
         placeholder="dd-mm-yyyy" value=""
         min="2022-01-01" max="2030-12-31"> From
     </p>
 
     <p >
-        <input type="date" id="dateTo"
+        <input type="date" id="to" name="to"
          placeholder="dd-mm-yyyy" value=""
          min="2022-01-01" max="2030-12-31"> To
     </p>
+        <ul id="roomsList"></ul>
 
-    <p>
-<!--        <ul id="listOfRooms"></ul>-->
-<!--        <input type="checkbox" name="RoomsAvailable" id="roomAva" value="True" >-->
-        <script>
-            let ids = roomsAvailable();
+        <button type="submit"></button>
+    </form>
 
-            // var container = document.createElement('div');
-            // var checkboxContainer = document.createElement('div');
-            // checkboxContainer.setAttribute('class', 'checkbox');
-            var label; var check;
+    <script>
+        let from = document.getElementById("from");
+        let to = document.getElementById("to");
+        let rez = JSON.parse('{{rezervari | tojson}}');
+        let hotel_data = JSON.parse('{{hotel_data | tojson}}');
+        let ul = document.getElementById("roomsList")
 
-            for(item in ids) {
+        console.log(rez);
+        console.log(hotel_data);
 
-                label = document.createElement('label');
-                check = document.createElement('input');
-                check.type = "checkbox";
-                check.name="RoomsAvailable";
-                check.value="True";
-                label.innerHTML = "room: " + item.id + " rooms: " + item.nr_beds;
+        from.addEventListener("change", roomsAvailable)
+        to.addEventListener("change", roomsAvailable)
 
-                label.appendChild(check);
+        function roomsAvailable() {
+            let no_ids = [];
+            let rooms = [];
 
-                // checkboxContainer.appendChild(label);
-                // container.appendChild(checkboxContainer);
+            for(let i in rez){
+                if(!(from.value > rez[i].to || to.value < rez[i].from)) {
+                    for(let id in rez[i].room_id) {
+                        no_ids.push(rez[i].room_id[id])
+                    }
+                }
             }
 
-        </script>
+            for (let j in hotel_data.rooms) {
+                if(!no_ids.includes(hotel_data.rooms[j].id)){
+                    rooms.push(hotel_data.rooms[j])
+                }
+            }
+            console.log(rooms)
 
-    </p>
+            ul.innerHTML=""
+            for (let k in rooms){
+                let li = document.createElement("li")
+                let divRoom = document.createElement("div")
+                let labelRoomId = document.createElement("label")
+                let labelRoomNrBeds = document.createElement("label")
 
+                let checkbox = document.createElement("input")
 
-    <script src="{{ url_for('static', filename='EmployeeMain.js') }}"></script>
+                labelRoomId.innerHTML = "Room ID: " + rooms[k].id + "   "
+                labelRoomNrBeds.innerHTML = "Room Nr Beds: " + rooms[k].nr_beds + "   "
+
+                checkbox.type = "checkbox"
+                checkbox.id = "room_" + rooms[k].id
+                checkbox.name = "room_" + rooms[k].id
+                checkbox.value = 1
+
+                divRoom.appendChild(labelRoomId)
+                divRoom.appendChild(labelRoomNrBeds)
+                divRoom.appendChild(checkbox)
+
+                li.appendChild(divRoom)
+                ul.appendChild(li)
+            }
+        }
+    </script>
 </body>
 </html>

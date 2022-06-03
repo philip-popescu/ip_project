@@ -43,18 +43,27 @@
     {% else %}
     <button onclick="window.location.href='{{ url_for('login', login_type='user') }}'">LogIn</button>
     {% endif %}
-
+    <p></p>
     {% for h in hotels %}
-    <div>Location: {{h['locatie']}}</div>
-    <div>{{h['descriere']}}</div>
-    <div>Type hotel: {{h['tip']}}</div>
+
+    <img src = "{{url_for('static', filename='images/hotel_{}.jpg'.format(h['id']))}}"
+         width="200" height="200">
+    <div>
+        <h3>{{h['nume']}}</h3>
+        <div>Location: {{h['locatie']}}</div>
+        <br>
+        <div align="center" style="font-size: small">{{h['descriere']}}</div>
+        <br>
+        <div>Type hotel: {{h['tip']}}</div>
+        <br>
+    </div>
     <form action="{{ url_for('res_page') }}" method="get">
         <input type="hidden" name="hotel" id="hotel" value={{h['id']}}>
         <button onclick="submit">Make Reservation</button>
+        <br><br>
     </form>
     {% endfor %}
 
-    </p>
 
 </body>
 </html>

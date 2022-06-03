@@ -168,7 +168,7 @@
         {
             "id": 1,
             "nume": "Hotel Lido",
-            "locatie": "Viale Libertà 11, 21021 Angera, Italia",
+            "locatie": "Viale Libert\u00e0 11, 21021 Angera, Italia",
             "tip": "Hotel 5 stele",
             "descriere": "Aceasta proprietate se afla la 5 minute de mers pe jos fata de plaja. La Hotel Lido vei beneficia de o locatie superba exact pe malurile Lacului Maggiore. Hotelul ofera prevelisti incantataoare asupra lacului, parcare gratuita si acces gratuit la Wi-Fi. Camerele sunt aerisite si luminoase, cu aer conditionat. O plimbare de 15 minute pe malul lacului va va aduce in centrul Angerei. Hotelul are propriile gradini, de asemenea exista si o mica plaja privata. Restaurantele Hotelului Lido ofera mancare pentru cele mai fine gusturi gatita din incgrediente cultivate de catre noi. Calatorii neinsotiti apreciaza in mod deosebit aceasta locatie.",
             "pret": 300,
@@ -189,14 +189,14 @@
                     "id": 3,
                     "nr_beds": 1
                 }
-            ]  
+            ]
         },
         {
             "id": 2,
             "nume": "Hotel Eden",
             "locatie": "Viale Della Vittoria 16, 28831 Baveno, Italia",
             "tip": "Hotel 4 stele",
-            "descriere": "Această proprietate este la 6 minute pe jos față de plajă. Hotelul Eden, administrat de o familie, este situat pe malul lacului Maggiore, în centrul oraşului Baveno, având  vedere panoramică. Hotelul are un restaurant, un bar și o terasă cu vedere la munte. Camerele au TV cu canale prin satelit, radio și baie privată cu uscător de păr. Puteți gusta preparate din bucătăria tradițională italiană la restaurantul à la carte. Hotelul Eden se află la 2 minute de mers pe jos de docul de unde sunt organizate excursii cu barca pe lac către Stresa și Insulele Borromeo. Autostrada A26 este la 3 km, iar Aeroportul Milano Malpensa se află la 45 km.",
+            "descriere": "Aceast\u0103 proprietate este la 6 minute pe jos fa\u021b\u0103 de plaj\u0103. Hotelul Eden, administrat de o familie, este situat pe malul lacului Maggiore, \u00een centrul ora\u015fului Baveno, av\u00e2nd  vedere panoramic\u0103. Hotelul are un restaurant, un bar \u0219i o teras\u0103 cu vedere la munte. Camerele au TV cu canale prin satelit, radio \u0219i baie privat\u0103 cu usc\u0103tor de p\u0103r. Pute\u021bi gusta preparate din buc\u0103t\u0103ria tradi\u021bional\u0103 italian\u0103 la restaurantul \u00e0 la carte. Hotelul Eden se afl\u0103 la 2 minute de mers pe jos de docul de unde sunt organizate excursii cu barca pe lac c\u0103tre Stresa \u0219i Insulele Borromeo. Autostrada A26 este la 3 km, iar Aeroportul Milano Malpensa se afl\u0103 la 45 km.",
             "pret": 260,
             "rooms": [
                 {

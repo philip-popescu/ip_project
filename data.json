@@ -242,31 +242,6 @@
                     "nr_beds": 1
                 }
             ]
-        },
-        {
-            "id": 1,
-            "locatie": "Brasov, Strada Mare nr.47",
-            "tip": "Pensiune",
-            "descriere": "Un pat bun si doua mese calde",
-            "pret": 30,
-            "rooms": [
-                {
-                    "id": 0,
-                    "nr_beds": 1
-                },
-                {
-                    "id": 1,
-                    "nr_beds": 3
-                },
-                {
-                    "id": 2,
-                    "nr_beds": 4
-                },
-                {
-                    "id": 3,
-                    "nr_beds": 2
-                }
-            ]
         }
     ]
 }

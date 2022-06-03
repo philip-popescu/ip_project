@@ -53,11 +53,12 @@
             </label>Show Password
         </p>
 
-
+        {% if login_type == 'user'%}
         <p align="center">
             <input type="checkbox" id="keepLogIn" name="keep_logged_in" value="True">
             <label>Keep me logged in.</label>
         </p>
+        {% endif %}
 
     </form>
 
@@ -81,6 +82,9 @@
     </form>
     {% endif %}
 
+    <p align="center">
+        <button onclick="window.location.href='/'">Go To Main Page</button>
+    </p>
     <script src="{{ url_for('static', filename='login.js') }}"></script>
 </body>
 </html>

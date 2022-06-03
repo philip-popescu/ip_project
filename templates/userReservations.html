@@ -21,7 +21,7 @@
     <h1>List of reservations</h1>
 
     {% for r in reservations %}
-    <div align="center" id="square1" style=";length:0%;width:20%;padding-bottom:1%;">
+    <div align="center" id="square{{r['id']}}" style=";length:0%;width:20%;padding-bottom:1%;">
         <div>From: {{r['from']}}  To: {{r['to']}}</div>
             {% for h in hotele %}
                 {% if h['id'] == r['hotel'] %}
@@ -41,19 +41,15 @@
 
 
         <style>
+            #square{{r['id']}} {
             {%if r['status'] == 0%}
-                #square1 {
                     background-color:#fffb6a
-                }
             {%elif r['status'] == 1%}
-                #square1 {
                     background-color:#aaffae
-                }
             {%else%}
-                #square1 {
                     background-color:#ffb4b3
-                }
             {%endif%}
+            }
         </style>
     </div>
     <br>

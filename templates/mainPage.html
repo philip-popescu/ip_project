@@ -25,9 +25,9 @@
     }
 
     .button1{
-        font-size: 20px;
-        width: 50%;
-        height: 100px
+        font-size: 30px;
+        width: 10%;
+        height: 80px
     }
 </style>
 
@@ -45,7 +45,7 @@
     >User Profile</button>
 
     {% else %}
-    <button onclick="window.location.href='{{ url_for('login', login_type='user') }}'">LogIn</button>
+    <button class="button1" onclick="window.location.href='{{ url_for('login', login_type='user') }}'">LogIn</button>
     {% endif %}
     <p></p>
     {% for h in hotels %}

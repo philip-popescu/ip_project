@@ -19,9 +19,33 @@
     "employee": [
         {
             "id": 0,
-            "nume": "Anca",
-            "telefon": "0799977734",
+            "nume": "Anca Matei",
+            "telefon": "0799977788",
             "email": "anca@yahoo.com",
+            "password": "zoefibarbata",
+            "hotel": 0
+        },
+        {
+            "id": 1,
+            "nume": "Zoe Ionescu",
+            "telefon": "0799977755",
+            "email": "zoe@yahoo.com",
+            "password": "zoefibarbata",
+            "hotel": 0
+        },
+        {
+            "id": 2,
+            "nume": "Maria Radulescu",
+            "telefon": "0799977733",
+            "email": "maria@yahoo.com",
+            "password": "zoefibarbata",
+            "hotel": 0
+        },
+        {
+            "id": 3,
+            "nume": "Mihai Popescu",
+            "telefon": "0799977777",
+            "email": "mihai@yahoo.com",
             "password": "zoefibarbata",
             "hotel": 0
         }
@@ -87,10 +111,89 @@
     "location": [
         {
             "id": 0,
-            "locatie": "Bucuresti, sector 2, Stefan cel Mare nr.87",
+            "nume": "Hotel Flora",
+            "locatie": "Via Sempione Nord 30, 28838 Stresa, Italia",
+            "tip": "Hotel 3 stele",
+            "descriere": "Aceasta proprietate este la 12 minute pe jos fata de plaja. Hotelul Flora este situat pe malurile Lacului Maggiore, la 10 minute de centrul orasului Stresa. Hotelul detine o piscina privata, parcare gratuita si o incantatoar priveliste catre Insulele Borromee. Camerele sunt izolate fonic, dispun de aer conditionat, TV si baie privata. Unele camere au chiar si cada cu hidromasaj si spa. Hotelul are un restaurant si un bar deschise 24h. Cel mai apropiat aeroport este Milan Malpensa, 16km de cazare. Oferim, de asemenea, transport platit de la aeroport la locatie si inapoi.",
+            "pret": 170,
+            "rooms": [
+                {
+                    "id": 0,
+                    "nr_beds": 2
+                },
+                {
+                    "id": 1,
+                    "nr_beds": 2
+                },
+                {
+                    "id": 2,
+                    "nr_beds": 3
+                },
+                {
+                    "id": 3,
+                    "nr_beds": 1
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "nume": "Hotel Lido",
+            "locatie": "Viale Libertà 11, 21021 Angera, Italia",
             "tip": "Hotel 5 stele",
-            "descriere": "Un hotel de lux.",
-            "pret": 120,
+            "descriere": "Aceasta proprietate se afla la 5 minute de mers pe jos fata de plaja. La Hotel Lido vei beneficia de o locatie superba exact pe malurile Lacului Maggiore. Hotelul ofera prevelisti incantataoare asupra lacului, parcare gratuita si acces gratuit la Wi-Fi. Camerele sunt aerisite si luminoase, cu aer conditionat. O plimbare de 15 minute pe malul lacului va va aduce in centrul Angerei. Hotelul are propriile gradini, de asemenea exista si o mica plaja privata. Restaurantele Hotelului Lido ofera mancare pentru cele mai fine gusturi gatita din incgrediente cultivate de catre noi. Calatorii neinsotiti apreciaza in mod deosebit aceasta locatie.",
+            "pret": 300,
+            "rooms": [
+                {
+                    "id": 0,
+                    "nr_beds": 2
+                },
+                {
+                    "id": 1,
+                    "nr_beds": 2
+                },
+                {
+                    "id": 2,
+                    "nr_beds": 3
+                },
+                {
+                    "id": 3,
+                    "nr_beds": 1
+                }
+            ]  
+        },
+        {
+            "id": 2,
+            "nume": "Hotel Eden",
+            "locatie": "Viale Della Vittoria 16, 28831 Baveno, Italia",
+            "tip": "Hotel 4 stele",
+            "descriere": "Această proprietate este la 6 minute pe jos față de plajă. Hotelul Eden, administrat de o familie, este situat pe malul lacului Maggiore, în centrul oraşului Baveno, având  vedere panoramică. Hotelul are un restaurant, un bar și o terasă cu vedere la munte. Camerele au TV cu canale prin satelit, radio și baie privată cu uscător de păr. Puteți gusta preparate din bucătăria tradițională italiană la restaurantul à la carte. Hotelul Eden se află la 2 minute de mers pe jos de docul de unde sunt organizate excursii cu barca pe lac către Stresa și Insulele Borromeo. Autostrada A26 este la 3 km, iar Aeroportul Milano Malpensa se află la 45 km.",
+            "pret": 260,
+            "rooms": [
+                {
+                    "id": 0,
+                    "nr_beds": 2
+                },
+                {
+                    "id": 1,
+                    "nr_beds": 2
+                },
+                {
+                    "id": 2,
+                    "nr_beds": 3
+                },
+                {
+                    "id": 3,
+                    "nr_beds": 1
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "nume": "Hotel Sole",
+            "locatie": "Ruga del Porto Vecchio, 1, 21018 Sesto Calende, Italia",
+            "tip": "Hotel 2 stele",
+            "descriere": "Situat in Sesto Calende, Hotel Sole are un restaurant, bar, un lounge si WiFi gratuit. Fiecare camera are o terasa privata, unele beneficiind de priveliste catre oras. Camere dispun de aer conditionat, un TV cu plasma, frigider. De asemenea, fiecare camera are o baie privata cu dus, uscator de par. Toate dispun de dulap. Hotelul ofera mic dejun continental sau a la carte. Stresa se afla la 27km de locatie in timp ce Brissago se situeaza la 44km departare. Cel mai apropiat aeroport este Milan Malpensa, 16km de cazare. Oferim, de asemenea, transport platit de la aeroport la locatie si inapoi.",
+            "pret": 100,
             "rooms": [
                 {
                     "id": 0,

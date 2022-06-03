@@ -5,9 +5,20 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='UserMain.css') }}"/>
     <title>Home</title>
 
+    <style>
+
+        html {
+            background: url("{{url_for('static', filename='images/menu.jpg')}}") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+
 </head>
 <body>
-    <h1>USER Interface</h1>
+    <h1>AirP.R.T.</h1>
     <p align="center">
         <button onclick="window.location.href='{{ url_for('main_page') }}'">Go to main page</button> <br><br>
         <button onclick="window.location.href='{{ url_for('user_reservations') }}'">See reservations</button> <br><br>

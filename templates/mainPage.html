@@ -3,24 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <title>Pagina Principala</title>
+
+<style>
+    { margin: 0; padding: 0; }
+
+    html {
+        background: url("{{url_for('static', filename='images/menu.jpg')}}") no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+    }
+
+    h1 {
+        font-stretch: expanded;
+        font-size: 100px
+    }
+
+    button1 {
+        font-size: 20px;
+        /*width: 50%;*/
+        /*height: 100px;*/
+    }
+</style>
+
 </head>
 
 
 <body>
-{% if id %}
-<button onclick="window.location.href='{{ url_for('userPage', login_type='user') }}'">User Profile</button>
-{% else %}
-<button onclick="window.location.href='{{ url_for('login', login_type='user') }}'">LogIn</button>
-{% endif %}
+    <h1 align="center" >AirP.R.T</h1>
 
-{% for h in hotels %}
-<div>Location: {{h['locatie']}}</div>
-<div>{{h['descriere']}}</div>
-<div>Type hotel: {{h['tip']}}</div>
-<form action="{{ url_for('res_page') }}" method="get">
-    <input type="hidden" name="hotel" id="hotel" value={{h['id']}}>
-    <button onclick="submit">Make Reservation</button>
-</form>
-{% endfor %}
+
+    <p align="center">
+    {% if id %}
+    <button onclick="window.location.href='{{ url_for('userPage', login_type='user') }}'"
+
+    >User Profile</button>
+
+    {% else %}
+    <button onclick="window.location.href='{{ url_for('login', login_type='user') }}'">LogIn</button>
+    {% endif %}
+
+    {% for h in hotels %}
+    <div>Location: {{h['locatie']}}</div>
+    <div>{{h['descriere']}}</div>
+    <div>Type hotel: {{h['tip']}}</div>
+    <form action="{{ url_for('res_page') }}" method="get">
+        <input type="hidden" name="hotel" id="hotel" value={{h['id']}}>
+        <button onclick="submit">Make Reservation</button>
+    </form>
+    {% endfor %}
+
+    </p>
+
 </body>
 </html>

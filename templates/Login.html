@@ -8,9 +8,17 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='login.css') }}"/>
     <title>Document</title>
     <style>
+
+        html {
+            background: url("{{url_for('static', filename='images/Main.jpg')}}") no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
         {% if login_type == 'user' %}
-        h1 {background-color: red;
-            background-size: 3000px 3000px;
+        h1 {background-size: 3000px 3000px;
             font-stretch: expanded}
         {% else %}
         h1 {background-color: purple;

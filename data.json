@@ -12,8 +12,14 @@
             "phone": "0744421715",
             "email": "popescu_philip@yahoo.ro",
             "password": "qwer1234",
-            "re_password": "qwer1234",
             "id": 1
+        },
+        {
+            "nume": "Alex",
+            "telefon": "0711111111",
+            "email": "alex@gmail.com",
+            "password": "1234qwer",
+            "id": 2
         }
     ],
     "employee": [
@@ -135,6 +141,62 @@
                 3
             ],
             "id": 6
+        },
+        {
+            "price": 680,
+            "user": 0,
+            "status": 1,
+            "from": "2022-06-10",
+            "to": "2022-06-25",
+            "nr_persoane": 3,
+            "hotel": 0,
+            "room_id": [
+                0,
+                1
+            ],
+            "id": 6
+        },
+        {
+            "price": 680,
+            "user": 0,
+            "status": 2,
+            "from": "2022-08-03",
+            "to": "2022-08-13",
+            "nr_persoane": 4,
+            "hotel": 0,
+            "room_id": [
+                2,
+                3
+            ],
+            "id": 7
+        },
+        {
+            "price": 680,
+            "user": -1,
+            "status": 1,
+            "from": "2022-10-06",
+            "to": "2022-10-14",
+            "nr_persoane": 4,
+            "hotel": 0,
+            "room_id": [
+                2,
+                3
+            ],
+            "id": 8
+        },
+        {
+            "price": 1200,
+            "user": 0,
+            "status": 0,
+            "from": "2022-06-04",
+            "to": "2022-06-16",
+            "nr_persoane": 3,
+            "hotel": 1,
+            "room_id": [
+                0,
+                1
+            ],
+            "id": 9
         }
     ],
     "location": [

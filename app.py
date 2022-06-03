@@ -196,7 +196,7 @@ def res_page():
         if h['id'] == hotel_id:
             hotel_data = h
     for r in get_data('reservation'):
-        if r['hotel'] == hotel_id:
+        if r['hotel'] == hotel_id and r['status'] != 2:
             rezervari.append(r)
     return render_template("reservation.html", rezervari=rezervari,
                            hotel_data=hotel_data, user_type=cookie_f[0])

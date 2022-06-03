@@ -178,7 +178,7 @@ def manage_rez():
 def res_page():
     cookie = request.cookies.get('user_id')
     if cookie is None:
-        return redirect(url_for("login", logi_type='user'))
+        return redirect(url_for("login", login_type='user'))
     cookie_f = cookie.split('_')
     hotel_id = -1
     hotel_data = None

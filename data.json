@@ -12,6 +12,7 @@
             "phone": "0744421715",
             "email": "popescu_philip@yahoo.ro",
             "password": "qwer1234",
+            "re_password": "qwer1234",
             "id": 1
         },
         {
@@ -37,7 +38,7 @@
             "telefon": "0799977755",
             "email": "zoe@yahoo.com",
             "password": "zoefibarbata",
-            "hotel": 0
+            "hotel": 1
         },
         {
             "id": 2,
@@ -45,7 +46,7 @@
             "telefon": "0799977733",
             "email": "maria@yahoo.com",
             "password": "zoefibarbata",
-            "hotel": 0
+            "hotel": 2
         },
         {
             "id": 3,
@@ -53,7 +54,7 @@
             "telefon": "0799977777",
             "email": "mihai@yahoo.com",
             "password": "zoefibarbata",
-            "hotel": 0
+            "hotel": 3
         }
     ],
     "reservation": [
@@ -187,7 +188,7 @@
         {
             "price": 1200,
             "user": 0,
-            "status": 0,
+            "status": 1,
             "from": "2022-06-04",
             "to": "2022-06-16",
             "nr_persoane": 3,
